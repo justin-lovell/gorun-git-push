@@ -1,0 +1,39 @@
+{
+  "name": "gorun-git-push",
+  "version": "0.1.0",
+  "description": "Manage a directory into a git repository based on configuration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:mocha": "mocha --compilers js:babel-core/register",
+    "flow:install": "flow-typed install",
+    "flow:check": "flow check",
+    "prepublish": "npm run build",
+    "push": "cd dist && npm publish",
+    "build": "gorun-exec gorun/build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justin-lovell/gorun-git-push.git"
+  },
+  "keywords": [
+    "gorun",
+    "cli",
+    "build"
+  ],
+  "author": "Justin Lovell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justin-lovell/gorun-git-push/issues"
+  },
+  "homepage": "https://github.com/justin-lovell/gorun-git-push#readme",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "flow-bin": "^0.38.0"
+  },
+  "dependencies": {
+    "app-root-path": "^2.0.1",
+    "git-repository": "^0.1.4",
+    "gorun": "^0.4.0"
+  }
+}
