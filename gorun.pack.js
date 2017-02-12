@@ -16,7 +16,7 @@ const copyPackageJson = {
   }]
 };
 
-export default {
+let config = {
   directoriesToClean: () => [
     'dist/*'
   ],
@@ -25,3 +25,5 @@ export default {
     copyPackageJson
   ]
 };
+
+export default config;

@@ -4,8 +4,8 @@
   "description": "Manage a directory into a git repository based on configuration",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:mocha": "mocha --compilers js:babel-core/register",
+    "test": "npm run flow:check && npm run test:mocha",
+    "test:mocha": "mocha --compilers js:babel-core/register --require babel-polyfill",
     "flow:install": "flow-typed install",
     "flow:check": "flow check",
     "prepublish": "npm run build",
@@ -29,7 +29,10 @@
   "homepage": "https://github.com/justin-lovell/gorun-git-push#readme",
   "devDependencies": {
     "babel-core": "^6.22.1",
-    "flow-bin": "^0.38.0"
+    "flow-bin": "^0.38.0",
+    "mocha": "^3.2.0",
+    "deepcopy": "latest",
+    "del": "latest"
   },
   "dependencies": {
     "app-root-path": "^2.0.1",
