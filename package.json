@@ -8,8 +8,7 @@
     "test:mocha": "mocha --compilers js:babel-core/register --require babel-polyfill",
     "flow:install": "flow-typed install",
     "flow:check": "flow check",
-    "prepublish": "npm run build",
-    "push": "cd dist && npm publish",
+    "push": "npm run test && npm run build && npm publish dist",
     "build": "gorun-exec gorun/build"
   },
   "repository": {
