@@ -25,6 +25,12 @@ describe('gorun-git-push', () => {
 
   beforeEach(done => {
 
+    const tempDirName = __dirname + '/temp';
+
+    if (!FileSystem.existsSync(tempDirName)) {
+      FileSystem.mkdirSync(tempDirName);
+    }
+
     const data = (+new Date()).toString() + '\n';
     const fileName = __dirname + '/temp/a.text';
 
@@ -59,15 +65,15 @@ describe('gorun-git-push', () => {
 
         if (FileSystem.existsSync(gitRepoFile)) {
           await Del(gitRepoFile, {dot: true});
-
-          const gitRepoOpts = {
-            cwd: Path.dirname(gitRepoFile),
-            stdio: 'inherit'
-          };
-          const gitRepoArgs = ['init', '--bare', 'existing-repo.git'];
-
-          await GitRepositoryCpUtil.spawn('git', gitRepoArgs, gitRepoOpts);
         }
+
+        const gitRepoOpts = {
+          cwd: Path.dirname(gitRepoFile),
+          stdio: 'inherit'
+        };
+        const gitRepoArgs = ['init', '--bare', 'existing-repo.git'];
+        await GitRepositoryCpUtil.spawn('git', gitRepoArgs, gitRepoOpts);
+
 
         GoRunConfig.gitPush = GoRunConfig.gitPush || {};
         GoRunConfig.gitPush.obtainConfiguration = () => ({
